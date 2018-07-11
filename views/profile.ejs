@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
+    <link type="text/css" rel="stylesheet" href="../main.css">
+    <link type="text/css" rel="stylesheet" href="../profile.css">
+    <title>Fitness App - <%= data.username %></title>
+  </head>
+  <body>
+    <div class="container row">
+      <div id="coll_outer" class="col m6 s12 offset-m3">
+        <div style="position:relative; top:30px;">
+          <h3>Fitness Calculator</h3>
+          <h5>...and videos</h5>
+          <span><a style="transform:scale(0.7);" class="btn" href="/logout">LOGOUT</a></span>
+        </div>
+        <ul id="coll" class="collapsible">
+           <li>
+             <div class="collapsible-header"><i class="material-icons">accessibility</i>Body Mass Index (BMI)</div>
+             <div class="collapsible-body">
+                 <div class="input-field">
+                  <select>
+                    <option value="" disabled selected>Age</option>
+                    <option value="1990">1990</option>
+                    <option value="1991">1991</option>
+                    <option value="1992">1992</option>
+                    <option value="1993">1993</option>
+                    <option value="1994">1994</option>
+                    <option value="1995">1995</option>
+                    <option value="1996">1996</option>
+                    <option value="1997">1997</option>
+                    <option value="1998">1998</option>
+                    <option value="1999">1999</option>
+                    <option value="2000">2001</option>
+                    <option value="2001">2001</option>
+                    <option value="2002">2002</option>
+                    <option value="2003">2003</option>
+                    <option value="2004">2004</option>
+                    <option value="2005">2005</option>
+                    <option value="2006">2006</option>
+                    <option value="2007">2007</option>
+                    <option value="2008">2008</option>
+                    <option value="2009">2009</option>
+                    <option value="2009">2010</option>
+                    <option value="2011">2011</option>
+                    <option value="2012">2012</option>
+                    <option value="2013">2013</option>
+                    <option value="2014">2014</option>
+                    <option value="2015">2015</option>
+                    <option value="2016">2016</option>
+                    <option value="2017">2017</option>
+                    <option value="2018">2018</option>
+                  </select>
+                  <div style="margin-top:20px;" class="input-field">
+                    <input id="h" type="text" class="validate">
+                    <label for="last_name">Height (centimeters)</label>
+                  </div>
+                  <div style="margin-top:20px;" class="input-field">
+                    <input id="w" type="text" class="validate">
+                    <label for="last_name">Weight (kilograms)</label>
+                  </div>
+                  <button id="get_bmi" class="btn purple darken-1">Get BMI</button>
+                  <!-- CARD -->
+                  <div id="bmi_card" class="row">
+                     <div class="col s12 m12">
+                       <div id="bmi_card_inner" class="card">
+                         <div class="card-content black-text">
+                           <span class="card-title">BMI Score</span>
+                           <h1 id="bmi_score" class="white-text" align="center">18.5</h1>
+                         </div>
+                       </div>
+                     </div>
+                   </div>
+                  <!-- CARD END -->
+                </div>
+             </div>
+           </li>
+           <li>
+             <div class="collapsible-header"><i class="material-icons">whatshot</i>Calorie Calculator</div>
+             <div class="collapsible-body">
+                 <span>
+                   <div style="margin-top:20px;" class="input-field">
+                     <input id="a" type="text" class="validate">
+                     <label>Age</label>
+                   </div>
+                   <label>
+                     <input id="male_r" class="with-gap" name="gender" type="radio"  value="m"/>
+                     <span>Male</span>
+                   </label>
+                   <label style="position:relative;margin-left:50px;">
+                     <input id="female_r" class="with-gap" name="gender" type="radio"  value="f"/>
+                     <span>Female</span>
+                   </label>
+                   <div style="margin-top:20px;" class="input-field">
+                     <input id="hc" type="text" class="validate">
+                     <label>Height (centimeters)</label>
+                   </div>
+                   <div style="margin-top:20px;" class="input-field">
+                     <input id="wc" type="text" class="validate">
+                     <label>Weight (kilograms)</label>
+                   </div>
+                   <button id="get_cal" class="btn purple darken-1">Get Calorie</button>
+                    
+                  <!-- CARD -->
+                   <div id="cal_card" class="row">
+                      <div class="col s12 m12">
+                        <div id="cal_card_inner" class="card">
+                          <div class="card-content black-text">
+                            <span class="card-title">Calorie</span>
+                            <h2 id="cal_score" class="black-text" align="center">2000</h2>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                   <!-- CARD END -->
+                    
+                 </span>
+             </div>
+           </li>
+           <li>
+             <div class="collapsible-header"><i class="material-icons">content_copy</i>History</div>
+             <div class="collapsible-body">
+               <span>
+                 <h4>BMI</h4>
+                 <ul id="bmi_list">
+                 </ul>
+                 <h4>Calories</h4>
+                 <ul id="cal_list">
+                 </ul>
+               </span>
+             </div>
+           </li>
+           <li>
+             <div class="collapsible-header"><i class="material-icons">video_library</i>Videos</div>
+             <div class="collapsible-body">
+              <span>
+                
+                <div class="row">
+                  <div class="col s12 m12">
+                    <div class="card blue-grey darken-1">
+                      <div class="card-content white-text">
+                        <span class="card-title">Card Title</span>
+                        <iframe width="100%" height="auto" src="https://www.youtube.com/embed/xLkHEZTSeoU" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                      </div>
+                    </div>
+                  </div>
+                </div>    
+              </span>
+              
+             </div>
+           </li>
+         </ul>
+      </div>
+    </div>
+  </body>
+  <script src="../jq.js"></script>
+  <script>
+    M.AutoInit();
+    
+    $('#get_bmi').click(function(){
+      var h = $('#h').val();
+      var w = $('#w').val();
+      h = h / 100;
+      var bmi = w / (h * h); 
+      bmi = bmi.toFixed(2);
+      $('#bmi_score').text(bmi);
+      if(bmi > 25){
+        $('#bmi_card_inner').addClass('red lighten-4'); 
+      }else if(bmi < 25 && bmi > 18){
+        $('#bmi_card_inner').addClass('green lighten-4'); 
+      }else{
+        $('#bmi_card_inner').addClass('red lighten-4');
+      }
+      
+      $('#bmi_card').slideDown(); 
+      
+      $.ajax({
+       url: '/bmi',
+       type: 'POST',
+       dataType: 'json',
+       data: {bmi: bmi},
+       success: function(data) {
+                  console.log(data); 
+                }
+       });
+
+    }); 
+    
+    $('#get_cal').click(function(){
+      var gender = $('input[name="gender"]:checked').val();
+      var h = Number($('#hc').val());
+      var w = Number($('#wc').val());
+      var a = Number($('#a').val());
+      var cal  = 0; 
+      if(gender === 'f'){
+        cal = 447.593 + (9.247 * w) + (3.098 * h) - (4.330 * a);
+      }else if(gender === 'm'){
+        cal = 88.362 + (13.397 * w) + (4.799 * h) - (5.677 * a);
+      }else{
+        alert('Please select your gender'); 
+      }
+      
+      cal = cal * 1.375; 
+      cal = cal.toFixed(2); 
+      $('#cal_score').text(cal);
+      $('#cal_card').slideDown(); 
+      
+      
+      $.ajax({
+       url: '/cal',
+       type: 'POST',
+       dataType: 'json',
+       data: {cal: cal},
+       success: function(data) {
+                  console.log(data); 
+                }
+       });
+      
+    });
+    
+    function set_history(data){
+      console.log('Setting History'); 
+      var bmi = data.bmi; 
+      var cal = data.calorie; 
+      console.log("BMI----->"+bmi); 
+      console.log(cal); 
+      for(var i=0; i<bmi.length; i++){
+        $('#bmi_list').append(`<li>${data.bmi[i].bmi}</li>`);
+      }
+      for(var i=0; i<cal.length; i++){
+        $('#cal_list').append(`<li>${data.calorie[i].cal}</li>`);
+      }
+    }
+    
+    $.ajax({
+     url: '/history',
+     type: 'GET',
+     dataType: 'json',
+     success: function(data) {
+                console.log(data[0]);
+                set_history(data[0]);  
+              }
+     });
+    
+  </script>
+</html>

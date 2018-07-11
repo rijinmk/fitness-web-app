@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
+  <!-- Compiled and minified JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
+  <link rel="stylesheet" href="main.css">
+  <link rel="stylesheet" href="index.css">
+  <title>Fitness App - Login</title>
+</head>
+<body>
+  <!-- LOGIN CARD -->
+  <div class="container row fitapp-login">
+    <div class="col s12 m6 offset-m3">
+      <h2 align="center" class="header">Fitness App</h2>
+      <h5 align="center" class="header">LOGIN</h5>
+      <br>
+      <div class="card horizontal">
+        <form action="/login" method="POST">
+            <div class="card-stacked">
+              <div class="card-content">
+                <!-- TEXT INPUTS -->
+                <div class="input-field col s12">
+                   <input name="login[username]" type="text" class="validate">
+                   <label for="last_name">Username</label>
+                 </div>
+                 <div class="input-field col s12">
+                    <input name="login[password]" type="password" class="validate">
+                    <label for="last_name">Password</label>
+                  </div>
+              </div>
+              <div class="card-action">
+                <button type="submit" class="btn">Submit</button>
+                <a style="margin-left:25px;" href="/register">Register</a>
+              </div>
+            </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <!-- LOGIN CARD END -->
+</body>
+</html>

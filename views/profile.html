@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
+  <!-- Compiled and minified JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
+  <link rel="stylesheet" href="main.css">
+  <link rel="stylesheet" href="index.css">
+  <title>Fitness App - Login</title>
+</head>
+<body>
+  <!-- LOGIN CARD -->
+  <div class="container row fitapp-register">
+    <div class="col s12 m6 offset-m3">
+      <h2 align="center" class="header">Fitness App</h2>
+      <h5 align="center" class="header">REGISTER</h5>
+      <br>
+      <div class="card horizontal">
+        <form action="/register" method="POST" onsubmit="return validate()">
+            <div class="card-stacked">
+              <div class="card-content">
+                <!-- TEXT INPUTS -->
+                <div class="input-field col s12">
+                   <input name="register[fname]" id="fname" type="text" class="validate">
+                   <label for="last_name">First Name</label>
+                 </div>
+                <div class="input-field col s12">
+                   <input name="register[username]" id="username" type="text" class="validate">
+                   <label for="last_name">Username</label>
+                 </div>
+                 <div class="input-field col s12">
+                    <input name="register[password]" id="password" type="password" class="validate">
+                    <label for="last_name">Password</label>
+                  </div>
+                  <div class="input-field col s12">
+                     <input name="register[cpassword]" id="cpassword" type="password" class="validate">
+                     <label for="last_name">Conf. Password</label>
+                   </div>
+              </div>
+              <div class="card-action">
+                <button type="submit" class="btn">Submit</button>
+                <a style="margin-left:25px;" href="/login">Login</a>
+              </div>
+            </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <!-- LOGIN CARD END -->
+</body>
+<script src="jq.js"></script>
+<script>
+  function validate(){
+    var fname = $('#fname').val();
+    var username = $('#username').val();
+    var password = $('#password').val();
+    var cpassword = $('#cpassword').val();
+    if(password===cpassword){
+      if(/[\w]{3,32}/gi.test(fname)){
+        if(!(/[\{\}\[\]\(\)\s]+/gi.test(username)) && /[\w]{3,32}/gi.test(username)){
+          if(/[\w]{8,100}/gi.test(password)){
+            return true;
+          }else{
+            alert('Passwords should have more than 8 charecters');
+          }
+        }else{
+          alert('Username shouln\'t contain special charecters and Username should be more than 3 charecters');
+        }
+      }else{
+        alert('First name should contain 3 - 32 charecters');
+      }
+    }else{
+      alert('Passwords don\'t match'); 
+    }
+    return false; 
+  } 
+</script>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  
+</body>
+</html>
